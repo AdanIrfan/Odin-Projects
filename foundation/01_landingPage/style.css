@@ -1,0 +1,214 @@
+/* container01 */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: #1f2937;
+    font-family: Roboto;
+}
+
+.container01{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 24px;
+    color: #f9faf8;
+}
+
+.right-links{
+    display: flex;
+    gap: 40px;
+}
+
+a{
+    text-decoration: none;
+    color:#e5e7eb;
+}
+
+
+.bottom-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+}
+
+button{
+    background-color: #3882f6; /* bright blue */
+    color: #f9faf8;            /* white text */
+    padding: 10px 24px;        /* space inside */
+    border: none;              /* remove default border */
+    border-radius: 6px;        /* rounded corners */
+    font-size: 18px;           /* bigger text */
+    font-weight: bold;
+    cursor: pointer; 
+    margin: 0px 0px 20px 0px;
+}
+
+.image{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+img{
+    height:150px;
+    width: auto;
+}
+
+.text-content h1{
+    color: #f9faf8;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.text-content p{
+    font-size: 18px;
+    color: #e5e7eb;
+}
+
+/* container02 */
+.content{
+    margin:0;
+    padding:0;
+}
+
+.container02{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading h1{
+    font-size: 36px;
+    color:#1f2937;
+    font-weight: 900;
+}
+
+.main-content{
+    display: flex;
+    gap: 20px;
+}
+
+.box{
+    width: 150px;
+    height: 100px;
+    border: 5px solid #3882f6;
+    border-radius: 5px;
+}
+
+.text{
+    text-align: center;
+    width: 150px;
+}
+
+/* container03 */
+
+.quote{
+    background-color: #e5e7eb;
+}
+
+.container03{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container03 h3{
+    text-align: end;
+}
+
+.container03 p{
+    font-size: 36px;
+    color: #1f2937;
+    font-weight: 300;
+}
+
+/* container04 */
+.container04{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+.card{
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    background-color: #3882f6;
+    border-radius: 15px;
+}
+
+.card-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 10px;
+}
+
+.card-container button{  
+    background-color: #3882f6; /* bright blue */
+    color: #f9faf8;            /* white text */
+    margin: 0px;
+    border: none;              /* remove default border */
+    border-radius: 6px;        /* rounded corners */
+    font-size: 18px;           /* bigger text */
+    font-weight: bold;
+    cursor: pointer; 
+    border: 5px solid white;
+}
+
+.signup-text{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.signup-text h3{
+    color:#e5e7eb;
+    margin: 0 0 8px 0;
+}
+
+.signup-text p{
+    color:#f9faf8ef;
+    padding: 0;
+    margin: 0;
+}
+/* container05 */
+.footer{
+    background-color: #1f2937;
+    font-family: Roboto;
+    color: white;
+    min-height: 50px;
+}
+
+.container05{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
