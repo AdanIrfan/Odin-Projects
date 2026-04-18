@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EtchaSketch</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            width: 960px;
+            height: 960px;
+            margin: 0 auto;
+            background-color: purple;
+        }
+        .square{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="btn">Resize</button>
+
+    <script>
+        const container = document.querySelector("#container");
+        for(let i = 0; i < 16; i++){
+            for(let j = 0; j < 16; j++){
+            const div = document.createElement("div");
+            container.appendChild(div)
+            div.classList.add("square")
+            div.addEventListener("mouseover", (e)=> e.target.style.backgroundColor="black");
+            div.style.width = `60px`;
+            div.style.height = `60px`;
+            }
+        }
+        const btn = document.querySelector("#btn");
+        btn.addEventListener("click",()=>{
+            const num = Number(prompt('Enter the grid size:'));
+            let size = 960/num;
+            if (num > 0 && num < 100 && !isNaN(num)){
+                container.replaceChildren();
+                for(let i = 0; i < num; i++){
+                    for(let j = 0; j < num; j++){
+                    const div = document.createElement("div");
+                    container.appendChild(div);
+                    div.classList.add("square");
+                    div.addEventListener("mouseover", (e)=> e.target.style.backgroundColor="black");
+                    div.style.width = `${size}px`;
+                    div.style.height = `${size}px`;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
