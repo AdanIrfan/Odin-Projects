@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+        <input type="text" id="calc-display" readonly>
+        <button class="btn-clear" type="button">C</button>
+        <div class="btns-container">
+            <button class="btn-number" type="button">7</button>
+            <button class="btn-number" type="button">8</button>
+            <button class="btn-number" type="button">9</button>
+            <button class="btn-operator" type="button">/</button>
+            <button class="btn-number" type="button">4</button>
+            <button class="btn-number" type="button">5</button>
+            <button class="btn-number" type="button">6</button>
+            <button class="btn-operator" type="button">*</button>
+            <button class="btn-number" type="button">1</button>
+            <button class="btn-number" type="button">2</button>
+            <button class="btn-number" type="button">3</button>
+            <button class="btn-operator" type="button">-</button>
+            <button class="btn-number" type="button">0</button>
+            <button class="btn-number" type="button">.</button>
+            <button class="btn-operator" type="button">+</button>
+            <button class="btn-equal" type="button">=</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        let firstNumber = "";
+        let secondNumber = "";
+        let operator = "";
+        let shouldResetDisplay = false;
+
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+        function subtract(num1, num2) {
+            return num1 - num2;
+        }
+
+        function multiply(num1, num2) {
+            return num1 * num2;
+        }
+
+        function divide(num1, num2) {
+            if (num2 === 0) {
+                return null;
+            }
+            return num1 / num2;
+        }
+
+        function operate(operator, num1, num2) {
+            if (operator === "+") {
+                return add(num1, num2);
+            }
+            else if (operator === "-") {
+                return subtract(num1, num2);
+            }
+            else if (operator === "*") {
+                return multiply(num1, num2);
+            }
+            else if (operator === "/") {
+                return divide(num1, num2);
+            }
+        }
+
+        function update(){
+            const buttons = Array.from(document.querySelectorAll("button"));  
+            buttons.forEach(btn => {
+                btn.addEventListener("click", (e) =>{
+                    const value = e.target.textContent
+                    if((!isNaN(Number(value)) || value === ".") && operator === ""){
+                        if(value == "." && firstNumber.includes(".")) return;
+                        firstNumber += value;
+                        const display = document.querySelector("#calc-display");
+                        display.value = firstNumber;
+                    }
+                    else if((isNaN(Number(value))) && (value === "+" || value === "-" || value === "*" || value === "/") ){
+                        operator = value;
+                        const display = document.querySelector("#calc-display");
+                        display.value = firstNumber + operator;
+                    }
+                    else if ((!isNaN(Number(value)) || value == ".") && operator != "" ){
+                        if(value == "." && secondNumber.includes(".")) return;
+                        secondNumber += value;
+                        const display = document.querySelector("#calc-display");
+                        display.value = firstNumber + operator + secondNumber;
+                    }
+                });
+            });
+        }
+        const equal = document.querySelector(".btn-equal");
+        equal.addEventListener("click", (e) =>{
+            if (!firstNumber || !secondNumber || !operator) return; 
+            const result = operate(operator, Number(firstNumber),Number(secondNumber))
+            const display = document.querySelector("#calc-display");
+            display.value = result;
+        });
+
+
+        const clear = document.querySelector(".btn-clear");
+        clear.addEventListener('click', ()=>{
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            const display = document.querySelector("#calc-display");
+            display.value = "";
+        });
+        
+        update();
+
+
+
+    </script>
+</body>
+
+</html>
